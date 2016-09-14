@@ -1,0 +1,19 @@
+01	START
+02		INPUT username 
+03		INPUT password
+04		SELECT COUNT(password) \* Returns 1 if username and password are correct
+05			AS loginValid
+06			FROM user
+07			WHERE username == username
+08			AND password == password
+09		IF loginValid == 1 THEN
+10			UPDATE user \* Flag user as logged in
+11				SET loggedIn = TRUE
+12				WHERE username == username				
+13			loginStatusMsg = "Login Successful"
+14			OUTPUT loginStatusMsg
+15		ELSE \* if username or password incorrect
+16			loginStatusMsg = "Login Unsuccessful"
+17			OUTPUT loginStatusMsg
+18		END IF
+19	END   

@@ -1,0 +1,32 @@
+01	START
+02		INPUT request
+03		SPLIT (request,",") \* split request by comma 
+04		username = request[0]
+05		requestType = request[1]
+06		FOR i = 2 to (request[].length -1)
+07			remainder = remainder + "," + request[i] \* collates all excess data into comma separated string
+08		NEXT
+09		SELECT loggedIn \* returns TRUE if user is logged in
+10			AS loggedIn
+11			FROM user
+12			WHERE username == username
+13		IF loggedIn THEN
+14			UPDATE user
+15				SET active = 3 \* flag user as active for 3 songs
+16				WHERE username == username
+17			SELECT CASE requestType \* call appropriate procedure, passing username and remainder string
+18				CASE IS "song"
+19					songReq = username + "," + remainder
+20					song(songReq)
+21				CASE IS "skip" 
+22					skipReq = username + "," + remainder
+23					skip(skipreq)
+24				CASE IS "vote" 
+25					voteReq = username + "," +  remainder
+26					vote(voteReq)		
+27			END SELECT
+28		ELSE \* if user is not logged in
+29			loginRequiredMsg = "Login Required"
+30			OUTPUT loginRequiredMSg
+31		END IF
+32	END

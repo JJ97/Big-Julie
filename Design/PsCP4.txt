@@ -1,0 +1,17 @@
+01	START
+02		INPUT voteReq
+03		SPLIT(voteReq,",")
+04		username = voteReq(0)
+05		URL = voteReq(1)
+06		SELECT COUNT(vote) *\ returns 1 if user has voted for song already
+07			AS voted
+08			FROM vote
+09			WHERE username == username
+10				AND URL == URL
+11		IF NOT voted THEN *\ if user has not voted for song
+12			INSERT INTO vote
+13				VALUES(URL,username)
+14			voteSuccessMsg = "Vote Success"
+15			OUTPUT voteSuccessMsg
+16		END IF
+17	END			

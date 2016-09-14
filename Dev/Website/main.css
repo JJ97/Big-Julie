@@ -1,0 +1,370 @@
+/* set style of desktop page, will be overridden for mobile where applicable */
+/* for entire page */
+body{
+  /* set background colour to light pink */
+  background-color: #F7DEDC;
+}
+/* for every button */
+button{
+  /* set border colour to always be white */
+  border-color: #FFF !important;
+}
+/* for entire navbar */
+.navbar{  
+  /* set background colour to dark red */
+  background:  #9C3B35;
+  /* match bottom border with jumbotron background */
+  border-bottom-color: #2E2E2E;
+  /* set navbar to be slightly transparent */
+  opacity: 0.8;
+  /* size adjustments for correct layout on desktop */
+  padding-top: 5px;
+  height: 85px;
+}
+/* for div containing Big Julie logo */
+.BJ {
+  /* size adjustments for correct layout on desktop */
+  margin-top:-20px;
+  font-size: 70px; 
+}
+/* for Big Julie logo */
+.BJ img{ 
+  /* set consistent size to fit in navbar */
+  height: 70px;
+}
+/* for marquee displaying currently playing song title */
+.nowPlaying { 
+  /* position in middle of navbar */
+  text-align: center; 
+  /* set text colour to dark grey */
+  color:  #2E2E2E;
+  /* size adjustments for correct layout on desktop */
+  font-size:30px;
+  height: 70px;
+  line-height: 75px;
+}
+/* for div containing login button */
+.btnLogin {
+  /* align button to far right of navbar, vertically centre */
+  padding-top: 1px;
+  text-align: right;
+}
+/* for login button */
+.btnLogin button{   
+  /* set text colour to white, background colour to green */  
+  color: #FFF;
+  background: #83BD6C ;
+  /* size adjustments for correct layout on desktop */
+  margin-top:0px;
+  font-size: 30px;
+  height: 70px;
+}
+/* for login button when logged in */
+.logged {
+  /* override background to match navbar background  */
+  background: #9C3B35 !important;
+  /* size adjustments for longer text */
+  margin-left: -30px;
+}
+/* for password textbox */
+.password{
+  /* size adjustments for correct layout on desktop */
+  padding-top: 5px;
+}
+/* for entire jumbotron */
+.jumbotron {
+  /* set background to dark grey */
+  background: #2E2E2E;
+  /* align elements in centre */
+  text-align: center;
+  /* size adjustments for correct layout on desktop */
+  padding-top: 135px;
+  height: 508px;
+  margin-bottom: 15px;
+}
+/* for thumbnail containing currently playing song cover art */
+.jumbotron .thumbnail {  
+  /* size adjustments for correct layout on desktop */
+  display: inline-block;
+  height:300px;
+  width:300px;
+  padding:3px;
+}
+/* for currently playing song cover art */
+.thumbNow{
+  /* size adjustments for correct layout on desktop */
+  height:292px !important;
+  width:300px;
+}
+/* for skip button */
+.btnSkip button {
+  /* set text to white, background to match navbar background */
+  background-color: #9C3B35;
+  color: #FFF;
+  /* size adjustments for correct layout on desktop */
+  font-size:30px;
+  width: 250px;
+}
+/* for skip button when skipped */
+.skipped {
+  /* override background colour to grey */
+  background-color: #BDBDBD !important;
+}
+/* for div containing all search elements */
+.search .container{
+  /* size adjustments for correct layout on desktop */
+  text-align: center; 
+  padding-bottom: 10px; 
+}
+/* for track and artist textboxes */
+.search input{
+  /* size adjustments for correct layout on desktop */
+  font-size:20px;
+  height:50px;
+}
+/* for search button */
+.btnSearch{
+  /* set text to white, background to green */
+  color: #FFF;
+  background: #83BD6C ;
+  /* size adjustments for correct layout on desktop */
+  font-size:20px;
+  height:50px;
+  width:150px;
+  margin-top:0px; 
+}
+/* for div containing all search result elements */
+.searchToggle {
+  /* set background to match jumbotron background */
+  background: #2E2E2E;
+  /* round corners */
+  border-radius: 10px; 
+  /* set elements to be slightly transparent*/
+  opacity: 0.8;
+  /* size adjustments for correct layout on desktop */
+  margin-bottom: 15px !important; 
+  margin-top: 65px;
+  height:330px;   
+}
+/* when search results hovered over */
+.searchToggle:hover{
+  /* disable transparency */
+  opacity:1;
+}
+/* for thumbnail containing search result album art */
+.searchResult .thumbnail {
+  /* ensure that thumbnail is constant size */
+  height: 300px !important;
+  width: 300px !important;
+  /* size adjustments for correct layout on desktop */
+  margin-left:-5px;
+  margin-top:15px;
+  margin-bottom:10px;
+}
+/* for search result album art */
+.thumbResult{
+  /* ensure that image fits in thumbnail */
+  height: 290px !important;
+  width: 300px !important;
+}
+/* for div containing search result information */
+.trackInfo{
+  /* size adjustments for correct layout on desktop */
+  margin-top: 25px;
+  margin-left: 60px;
+}
+/* for text displaying search result information*/
+.trackInfo p{
+  /* set colour to white */   
+  color: #fff;
+  /* size adjustments for correct layout on desktop */
+  font-size: 20px;
+  text-align: left;
+}
+/* for div containing YES and NO buttons */
+.reqConfBtns{
+  /* size adjustments for correct layout on desktop */
+  margin-top:10px;
+}
+/* for YES and NO buttons */
+.reqConfBtn{
+  /* set text to white */
+  color: #FFF;  
+  /* size adjustments for correct layout on desktop */
+  font-size:60px;
+  height:150px;
+  width:150px;
+  margin-top:0px; 
+}
+/* for YES button */
+.btnYes{
+  /* set colour to green */
+  background: #83BD6C ;
+}
+/* for NO button */
+.btnNo{
+  /* set colour to red */
+   background: #9C3B35;
+}
+/* for div containing next song modules */
+.nextSongs{
+  /* ensure that mouse hover targets correct area */
+  pointer-events: none;
+  /* size adjustments for correct layout on desktop */
+  margin-left: -10px; 
+}
+/* for each next song module */
+.nextSong  {
+  /* align elements in centre of module */
+  text-align: center;
+  /* set background to dark grey */
+  background: #2E2E2E;
+  /* round corners */
+  border-radius: 10px; 
+  /* set module to 50% transparency */
+  opacity: 0.5;
+  /* ensure that mouse hover targets correct area */
+  pointer-events: fill;
+  /* ensure that modules align correctly when search result module is open */
+  position:relative !important;
+  /* size adjustments for correct layout on desktop */
+  padding:5px;   
+  height: 300px;
+  margin-top:-10px;   
+ }
+ /* when mouse hovers over specific module */
+.nextSong:hover {
+  /* disable transparency */
+  opacity: 1;
+}
+/* for each thumbnail containing next song cover art */
+.nextSong .thumbnail {
+  /* ensure that thumbnail is constant size */
+  height: 220px !important;
+  width: 220px !important;
+  /* size adjustments for correct layout on desktop */
+  display: inline-block;
+  margin-top:3px; 
+}
+/* for each next song cover art */
+.nextSong img {
+  /* ensure that image fits in thumbnail */
+  height: 210px !important;
+  width: 220px !important;
+}
+/* for each next song title */
+.nextSong p {
+  /* set colour to white */
+  color: #FFF;
+  /* size adjustments for correct layout on desktop */
+  font-size: 20px;
+}
+/* for each vote button */
+.btnVote button {
+  /* set text colour to white, background to green */
+  color: #FFF;
+  background: #83BD6C; 
+  /* size adjustments for correct layout on desktop */
+  width: 100px; 
+  font-size: 18px;   
+  width: 200px;
+}
+/* for vote button when corresponding song already voted for */
+.voted {
+  /* override background colour to grey */
+  background-color: #BDBDBD !important;
+}
+/* for each next song module on desktop */
+.col-md-6 {
+  /* size adjustments for correct layout on desktop */
+  padding-bottom: 20px;
+}
+/* apply following CSS only when media query met, i.e. when page loaded from mobile device */
+@media="only screen and (max-device-width: 480px) , only screen and (-webkit-min-device-pixel-ratio: 2) , screen and (-webkit-device-pixel-ratio:1.5){
+/* override previous layout for correct display on mobile */
+.navbar{
+  padding-top: 10px;
+  height: 95px;
+}
+.BJ {
+  padding-top: 25px;
+  font-size: 35px; 
+}
+.nowPlaying {   
+  font-size:30px;
+  height: 80px;
+  line-height: 75px;
+}
+.btnLogin {
+  margin-left:-10px;
+}
+.btnLogin button{
+  font-size: 30px;
+  width: 150px;
+}
+.jumbotron {
+  padding-top: 135px;
+}
+.jumbotron .thumbnail {  
+  width: 300px;
+  padding:3px;
+}
+.btnSkip button{
+  font-size: 30px;
+  width: 250px;
+}
+.search .container{
+  padding-bottom: 15px;  
+}
+.initSearch{
+  margin-left: -50px;
+}
+.search input{
+  font-size:20px;
+  height:50px;
+}
+.searchResult {
+  margin-left:-100px;
+  margin-right:-100px;
+}
+.search .thumbnail{
+  padding:3px;
+}
+.trackInfo{
+  margin-top: 25px;
+  margin-left: 100px; 
+}
+.reqConfBtns{
+  margin-left: -40px; 
+}
+.nextSongs{
+  margin-left:-5px;
+}
+.nextSong  {
+  padding:5px;  
+  border-radius: 10px; 
+  height: 370px;
+}
+.nextSong .thumbnail {
+  height: 280px !important;
+  width: 280px !important;
+}
+.nextSong img {
+  height: 270px !important;
+  width: 280px !important;
+}
+.nextSong p {
+  font-size: 20px;
+}
+.btnVote button{
+  font-size: 30px;
+  width: 250px;
+}
+.col-md-6 {
+  padding-bottom: 20px;
+}
+.logged {
+  background: #9C3B35 !important;
+  margin-left: 0px;
+}
+}

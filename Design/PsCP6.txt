@@ -1,0 +1,38 @@
+01	START
+02		DO
+03			FOR i = 0 to 6 \* for each candidate next song
+04				SELECT URL \* returns URL of ith song
+05					LIMIT 1 OFFSET i
+06					AS URL
+07					FROM request
+08				UPDATE request
+09					SET reqTime = reqTime + ( \* increment reqTime of song by sum of vote weights			
+10						SELECT SUM(voteWeight)\* sums all voteweights of returned usernames
+11							FROM user
+12							WHERE username IN ( \* returns all usernames that have voted for song					
+13								SELECT username 
+14									FROM vote
+15									WHERE URL == URL)						
+16					WHERE URL == URL
+17			NEXT
+18			SELECT length \* returns length of song (ms)
+19				AS length
+20				FROM request
+21				LIMIT 1
+22				ORDER BY reqTime DESC
+23			length = length*0.001 + currentTime \* converts song length to seconds and adds to current UNIX timestamp
+24			SELECT URL \* returns URL of song to play
+25				AS URL
+26				FROM request
+27				LIMIT 1
+28				ORDER BY reqTime DESC
+29			WHILE length > currentTime \* loop until song finished
+30				spotify.stream(URL)
+31			END WHILE
+32			UPDATE user
+33				SET skipped = FALSE, active = active - 1 \* flags all users as not having skipped song and decrements their active value 
+34			DELETE FROM request \* delete song just played from table
+35				LIMIT 1
+36				ORDER BY reqTime DESC
+37		LOOP		
+38	END

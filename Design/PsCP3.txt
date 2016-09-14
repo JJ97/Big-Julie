@@ -1,0 +1,39 @@
+01	START
+02		INPUT songReq
+03		SPLIT(songReq,",")
+04		username = songReq[0]
+05		searchTerm = songReq[1]
+06		SELECT lastReqTime \* returns unix timestamp of last songreq by user
+07			AS lastReqTime
+08			FROM user
+09			WHERE username == username
+10		SELECT COUNT(active) \* returns number of active users
+11			AS activeUsers
+12			FROM user
+13			WHERE active > 0
+14		reqCooldown = 85*(activeUsers)^0.50 \* determines cooldown time (s) from graph
+15		IF (currentTime - lastReqTime) > reqCooldown THEN \* if cooldown elapsed
+16			UPDATE user 
+17				SET lastReqTime = currentTime
+18				WHERE username == username
+19			spotify.search(searchTerm)
+20			INPUT trackObject
+21			SPLIT (trackObject,",") \* split trackObject into component parts
+22			URL = trackObject[0]
+23			genre = trackObject[1]
+24			name = trackObject[2]
+25			art = trackObject[3]
+26			length = trackObject[4]	
+27			explicit = trackObject[5]
+28			IF NOT explicit AND length < 420000 THEN \* if song not explicit and below 7 mins
+29				searchResult = genre + name + art
+30				OUTPUT searchResult
+31				INPUT choiceOK
+32				IF choiceOK THEN \* if user confirms song choice
+33					reqTime = currentTime
+34					INSERT INTO request
+35						VALUES(URL,genre,name,art,length,reqTime)
+36				END IF
+37			END IF	
+38		END IF
+39	END			

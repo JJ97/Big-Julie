@@ -1,0 +1,30 @@
+01	START
+02		INPUT skipReq
+03		SPLIT(skipReq,",")
+04		username = skipReq[0]
+05		URL = skipReq[1]
+06		SELECT skipped \* returns 1 if user has skipped current song
+07			AS skipped
+08			FROM user
+09			WHERE username == username
+10		IF NOT skipped THEN \* if user has not skipped yet
+11			SELECT COUNT(active) \* returns number of active users
+12				AS activeUsers
+13				FROM user
+14				WHERE active > 0		
+15			SELECT skipCount \* returns number of skip votes for current song
+16				AS skipCount
+17				FROM request
+18				WHERE URL == URL
+19			skipCount = skipCount + 1
+20			UPDATE request \* increments skip count for song
+21				SET skipCount = skipCount
+22				WHERE URL == URL
+23			UPDATE user 
+24				SET skipped = 1 \* flags user as having skipped song
+25				WHERE username == username
+26			IF skipCount > (activeUsers/2.5) THEN \* if number of skip votes over 40% threshold
+27				nextSongReq()
+28			END IF
+29		END IF			
+30	END			
